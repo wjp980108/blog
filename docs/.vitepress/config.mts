@@ -1,58 +1,66 @@
-import { defineConfig } from 'vitepress'
+import {defineConfig} from 'vitepress';
 
+// 导入主题的配置
+import {blogTheme} from './blog-theme';
+
+// 如果使用 GitHub/Gitee Pages 等公共平台部署
+// 通常需要修改 base 路径，通常为“/仓库名/”
+// 如果项目名已经为 name.github.io 域名，则不需要修改！
+// const base = process.env.GITHUB_ACTIONS === 'true'
+//   ? '/vitepress-blog-sugar-template/'
+//   : '/'
+
+// Vitepress 默认配置
+// 详见文档：https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "blog",
-  lang: 'zh-CN',
-  description: "A VitePress Site",
-  srcDir: '../pages',
-  outDir: '../dist',
+  // 继承博客主题(@sugarat/theme)
+  extends: blogTheme,
+  // base,
+  lang: 'zh-cn',
+  title: 'Meet you',
+  description: 'Meet you的博客',
+  lastUpdated: true,
+  // 详见：https://vitepress.dev/zh/reference/site-config#head
+  head: [
+    // 配置网站的图标（显示在浏览器的 tab 上）
+    // ['link', { rel: 'icon', href: `${base}favicon.ico` }], // 修改了 base 这里也需要同步修改
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+  ],
   themeConfig: {
+    // 展示 2,3 级标题在目录中
+    outline: {
+      level: [2, 3],
+      label: '目录',
+    },
+    // 默认文案修改
+    returnToTopLabel: '回到顶部',
+    sidebarMenuLabel: '相关文章',
+    lastUpdatedText: '上次更新于',
+
+    // 设置logo
+    logo: '/logo.png',
+    // editLink: {
+    //   pattern:
+    //     'https://github.com/ATQQ/sugar-blog/tree/master/packages/blogpress/:path',
+    //   text: '去 GitHub 上编辑内容'
+    // },
+    nav: [
+      { text: '首页', link: '/' },
+      { text: '关于作者', link: 'https://sugarat.top/aboutme.html' },
+    ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
-      { icon: 'x', link: 'https://x.com/Met_you5' },
-    ]
-  },
-  locales: {
-    root: {
-      label: '简体中文',
-      themeConfig: {
-        nav: [
-          { text: '首页', link: '/' },
-          { text: '示例', link: '/markdown-examples' }
-        ],
-        sidebar: [
-          {
-            text: '示例',
-            items: [
-              { text: 'Markdown 示例', link: '/markdown-examples' },
-              { text: 'Runtime API 示例', link: '/api-examples' }
-            ]
-          }
-        ],
-        darkModeSwitchLabel: '主题',
-        lightModeSwitchTitle: '切换到浅色模式',
-        darkModeSwitchTitle: '切换到深色模式'
+      {
+        icon: 'github',
+        link: 'https://github.com/ATQQ/sugar-blog/tree/master/packages/theme',
+      },
+    ],
+    search: {
+      provider: 'algolia',
+      options: {
+        appId: '1US6L0UDQG',
+        apiKey: '0b2bded5880948e48d84b209f50c3a18',
+        indexName: 'blog'
       },
     },
-    en: {
-      label: 'English',
-      lang: 'en-US',
-      link: '/en/',
-      themeConfig: {
-        nav: [
-          { text: 'Home', link: '/en/' },
-          { text: 'Examples', link: '/en/markdown-examples' }
-        ],
-        sidebar: [
-          {
-            text: 'Examples',
-            items: [
-              { text: 'Markdown Examples', link: '/en/markdown-examples' },
-              { text: 'Runtime API Examples', link: '/en/api-examples' }
-            ]
-          }
-        ]
-      }
-    },
   },
-})
+});

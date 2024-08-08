@@ -1,2 +1,7 @@
 node_modules
+.idea
 dist
+cache
+.temp
+.DS_Store
+pnpm-lock.yaml
