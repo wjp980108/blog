@@ -57,7 +57,7 @@ export default defineConfig({
     nav: [
       {
         text: '个人作品展示',
-        link: '/works/',
+        link: '/works',
       },
       {
         text: '技术笔记',
@@ -86,7 +86,7 @@ export default defineConfig({
       },
       {
         text: '关于我',
-        link: '/about/',
+        link: '/about',
       },
     ],
     // 个人社交链接
