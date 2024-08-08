@@ -34,9 +34,9 @@ const blogTheme = getThemeConfig({
 
   // 页脚
   footer: {
-    // message: '字段支持配置为HTML内容，配置多条可以配置为数组',
-    version: true,
-    copyright: 'MIT License | Meet you',
+    message: '基于 MIT 许可发布',
+    version: false,
+    copyright: `版权所有 © 2019-${new Date().getFullYear()} Meet you`,
     icpRecord: {
       name: '豫ICP备2024083285号',
       link: 'https://beian.miit.gov.cn/',
@@ -163,12 +163,12 @@ const blogTheme = getThemeConfig({
         position: [0, 50],
         stageStyle: {
           height: 300,
+          width: 300,
         },
       },
       {
         path: 'https://model.oml2d.com/shizuku_pajama/index.json',
         scale: 0.2,
-        volume: 0,
         position: [40, 10],
         stageStyle: {
           height: 350,
@@ -178,12 +178,44 @@ const blogTheme = getThemeConfig({
       {
         path: 'https://model.oml2d.com/shizuku/shizuku.model.json',
         scale: 0.2,
-        volume: 0,
         position: [70, 70],
         stageStyle: {
           height: 370,
           width: 400,
         },
+      },
+    ],
+  },
+  works: {
+    title: '个人项目/线上作品',
+    description: '记录开发的点点滴滴',
+    topTitle: '举些🌰',
+    list: [
+      {
+        title: '博客主题 @sugarat/theme',
+        description: '基于 vitepress 实现的博客主题',
+        time: {
+          start: '2024/01/29',
+        },
+        github: {
+          owner: 'ATQQ',
+          repo: 'sugar-blog',
+          branch: 'master',
+          path: 'packages/theme',
+        },
+        status: {
+          text: '自定义badge',
+        },
+        url: 'https://theme.sugarat.top',
+        cover:
+          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303',
+        tags: ['Vitepress', 'Vue'],
+        links: [
+          {
+            title: '一个简约风的VitePress博客主题',
+            url: 'https://juejin.cn/post/7196517835380293693',
+          },
+        ],
       },
     ],
   },
