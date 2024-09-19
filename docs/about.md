@@ -1,5 +1,5 @@
 ---
-sticky: 1
+hidden: true
 ---
 # 关于主题
 
