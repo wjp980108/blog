@@ -97,7 +97,7 @@ export default defineConfig({
       },
       {
         icon: 'x',
-        link: 'https://x.com/Mee_you98',
+        link: 'https://x.com/Meet_you98',
       },
       {
         icon: 'youtube',
