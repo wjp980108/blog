@@ -150,8 +150,8 @@ const blogTheme = getThemeConfig({
   authorList: [
     {
       nickname: 'Meet you',
-      url: 'https://www.wjp.plus',
-      des: '你的指尖,拥有改变世界的力量',
+      url: 'https://github.com/wjp980108',
+      des: '遇事不决，可问春风。春风不语，既随本心。',
     },
   ],
   oml2d: {
