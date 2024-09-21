@@ -63,20 +63,12 @@ export default defineConfig({
         text: '技术笔记',
         items: [
           {
-            text: '前端',
-            link: '/web/',
+            text: '技术分享',
+            link: '/technology/share/',
           },
           {
-            text: '后端',
-            link: '/backend/',
-          },
-          {
-            text: '运维',
-            link: '/ops/',
-          },
-          {
-            text: '其他',
-            link: '/other/',
+            text: '学习笔记',
+            link: '/technology/notes/',
           },
         ],
       },
