@@ -73,6 +73,10 @@ export default defineConfig({
         ],
       },
       {
+        text: '精品文章',
+        link: '/article/',
+      },
+      {
         text: '生活随笔',
         link: '/life/',
       },
