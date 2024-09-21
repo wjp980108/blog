@@ -3,8 +3,8 @@ author: 远方os
 authorLink: https://www.wjp.plus
 title: element-plus 主题切换动画
 description: 使用 View Transitions API 实现 element-plus 主题切换动画
+cover: https://imgbed.wjp.plus/blog/article/element-plus-theme/fc177bf15fc64b61aba971b526e3b2bf~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.gif
 sticky: 1
-sidebar: false
 ---
 
 # 来实现一下 element-plus 中的主题切换动画
@@ -13,19 +13,19 @@ sidebar: false
 
 前些天看到 [element-plus](https://element-plus.org/zh-CN/) 官网的主题切换动画做的特别炫酷，私下研究了一下，今天我们一起来看一下它的实现思路，废话不多说，先上图：
 
-![图片](./images/fc177bf15fc64b61aba971b526e3b2bf~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.gif)
+![图片](https://imgbed.wjp.plus/blog/article/element-plus-theme/fc177bf15fc64b61aba971b526e3b2bf~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.gif)
 
 在这里我们看到，有一个圆形扩散的效果，非常的炫酷，这种效果要怎么实现呢，在实现之前，我们先来看一个新型的 API，它就是 [View Transitions API](https://developer.mozilla.org/zh-CN/docs/Web/API/View_Transitions_API) ，我们这个过渡效果，就是利用它实现的。
 
 ## [View Transitions API](https://developer.mozilla.org/zh-CN/docs/Web/API/View_Transitions_API) 介绍
 
-![图片](./images/7b0fa83b0456447f91c9a7943d202caf~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.png)
+![图片](https://imgbed.wjp.plus/blog/article/element-plus-theme/7b0fa83b0456447f91c9a7943d202caf~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.png)
 
 在介绍中看到，[View Transitions API](https://developer.mozilla.org/zh-CN/docs/Web/API/View_Transitions_API) 可以在更新 DOM 内容的同时，创建不同 DOM 状态之间的过渡动画，利用这一点，我们来实现主题切换的过渡动画。
 
 在实现之前，我们还需要了解一下这个 API 的另一个特性，那就是当我们在使用这个 API 产生动画的时候，它会帮我们对整个页面进行截图操作，同样我们也可以拿到这个截图，我们来看一下：
 
-![图片](./images/f3ca4560ea91467fbd0b546f1933983a~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.png)
+![图片](https://imgbed.wjp.plus/blog/article/element-plus-theme/f3ca4560ea91467fbd0b546f1933983a~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.png)
 
 这个 API 会帮我们创造一组伪元素，在这组伪元素中，我们可以拿到页面状态变化产生的新页面截图 `::view-transition-new(root)` 和旧页面的截图 `::view-transition-old(root)`，我们利用这组截图，来实现我们想要的效果。
 
@@ -66,7 +66,7 @@ sidebar: false
 ```
 我们来看一下效果：
 
-![图片](./images/99250faaacb04606814bdeb0ca475511~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.gif)
+![图片](https://imgbed.wjp.plus/blog/article/element-plus-theme/99250faaacb04606814bdeb0ca475511~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.gif)
 
 目前我们实现了主题切换的功能，但是没有过渡效果，如果我们要使用 [View Transitions API](https://developer.mozilla.org/zh-CN/docs/Web/API/View_Transitions_API) 实现过渡效果，我们需要调用 [`document.startViewTransition()`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/startViewTransition)，在我们调用它的时候，会产生动画，我们来完成一下代码：
 
@@ -82,7 +82,7 @@ btn.addEventListener('click', () => {
 ```
 效果图：
 
-![图片](./images/1f87d77e5f2543d3b97097ad479b9700~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.gif)
+![图片](https://imgbed.wjp.plus/blog/article/element-plus-theme/1f87d77e5f2543d3b97097ad479b9700~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.gif)
 
 我们在 [`document.startViewTransition()`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/startViewTransition) 中切换主题，此时我们可以看到，有一个淡入淡出的效果，但是这并不是我们想要的，我们要实现 element-plus 中的圆形扩散效果，我们还需要用到 `::view-transition-new(root)` 和 `::view-transition-old(root)` 这两个伪元素，这两个伪元素是屏幕截图，那么我们怎样利用它产生一个截图的效果呢，这里我们引入一个 css 属性 [`clip-path`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path)，我们可以通过 [`clip-path`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path) 属性将一个元素裁剪成任意形状，在这个效果中，我们需要将 `::view-transition` 进行一个圆形的裁剪，用于实现圆形的过渡效果，如果需要过渡，那么就是将这个圆的半径从0过渡到100%，这样就会有过渡的效果，下面我们来实现一下它：
 
@@ -133,7 +133,7 @@ btn.addEventListener('click', (e) => {
 ```
 通过以上代码，我们已经实现了主题切换的自定义动画，我们来看一下效果：
 
-![图片](./images/c71e6ab0b458400c9801195bd37ea2bd~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.gif)
+![图片](https://imgbed.wjp.plus/blog/article/element-plus-theme/c71e6ab0b458400c9801195bd37ea2bd~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.gif)
 
 - 最终实现
 
@@ -189,7 +189,7 @@ btn.addEventListener('click', (e) => {
 ```
 来看我们最终实现的效果：
 
-![图片](./images/dcdb1482c90e4a019cedcf7ca94ccbb8~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.gif)
+![图片](https://imgbed.wjp.plus/blog/article/element-plus-theme/dcdb1482c90e4a019cedcf7ca94ccbb8~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.gif)
 
 到此我们就实现了主题切换的过渡动画
 
