@@ -50,8 +50,15 @@ const blogTheme = getThemeConfig({
   themeColor: 'el-blue',
   // 文章默认作者
   author: 'Meet you',
-  // 友链
+  // 友情链接
   friend: [
+    {
+      nickname: '粥里有勺糖',
+      des: '你的指尖,拥有改变世界的力量',
+      avatar:
+        'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
+      url: 'https://sugarat.top',
+    },
     {
       nickname: 'Vitepress',
       des: 'Vite & Vue Powered Static Site Generator',
