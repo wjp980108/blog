@@ -199,28 +199,31 @@ const blogTheme = getThemeConfig({
     topTitle: '举些🌰',
     list: [
       {
-        title: '博客主题 @sugarat/theme',
-        description: '基于 vitepress 实现的博客主题',
+        title: '后台管理 Meet Admin',
+        description: '基于 Vue3 打造，融合流行的 Element-plus 组件库，界面简洁美观、交互流畅。借助 Unocss 塑造独特样式体系，独具魅力。Vueuse 等工具提升开发效率，同时还封装了众多易用性组件，极大地简化操作流程，让管理更加便捷高效。',
         time: {
-          start: '2024/01/29',
+          start: '2024/09/18',
         },
         github: {
-          owner: 'ATQQ',
-          repo: 'sugar-blog',
-          branch: 'master',
-          path: 'packages/theme',
+          owner: 'wjp980108',
+          repo: 'meet-admin',
+          branch: 'main',
         },
         status: {
-          text: '自定义badge',
+          text: '积极维护',
         },
-        url: 'https://theme.sugarat.top',
-        cover:
-          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303',
-        tags: ['Vitepress', 'Vue'],
+        url: 'https://admin.wjp.plus',
+        cover: [
+          'https://imgbed.wjp.plus/blog/works/meet-admin/menu.png',
+          'https://imgbed.wjp.plus/blog/works/meet-admin/searchMenu.png',
+          'https://imgbed.wjp.plus/blog/works/meet-admin/user.png',
+          'https://imgbed.wjp.plus/blog/works/meet-admin/seetings.png',
+        ],
+        tags: ['Admin', 'Vue', 'Element Plus'],
         links: [
           {
-            title: '一个简约风的VitePress博客主题',
-            url: 'https://juejin.cn/post/7196517835380293693',
+            title: '一个人的Vue3后台管理系统开发之路',
+            url: 'https://admin.wjp.plus',
           },
         ],
       },
