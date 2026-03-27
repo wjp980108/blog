@@ -15,6 +15,15 @@ import { blogTheme } from './blog-theme';
 export default defineConfig({
   // 继承博客主题(@sugarat/theme)
   extends: blogTheme,
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler',
+        },
+      },
+    },
+  },
   // base,
   lang: 'zh-cn',
   title: 'Meet you',
