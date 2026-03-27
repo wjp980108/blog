@@ -76,7 +76,7 @@ jobs:
       - name: Deploy via rsync
         uses: burnett01/rsync-deployments@v8
         with:
-          switches: -avz --delete
+          switches: -avz --delete --exclude='.user.ini'
           path: ./dist/
           remote_path: ${{ secrets.SERVER_TARGET }}
           remote_host: ${{ secrets.SERVER_HOST }}
