@@ -10,3 +10,4 @@ recommend: 1
 ## 目录
 
 - [SSH 安装与基础使用指南](./ssh-install.md)
+- [SSH 密钥认证指南](./ssh-key.md)
