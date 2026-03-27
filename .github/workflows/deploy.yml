@@ -72,17 +72,14 @@ jobs:
           name: dist
           path: ./dist
 
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
-
       # Transfer files to server using rsync (with --delete to remove old files)
       - name: Deploy via rsync
-        run: |
-          rsync -avz --delete \
-            -e "ssh -p ${{ secrets.SERVER_PORT }}" \
-            ./dist/ \
-            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_TARGET }}
+        uses: burnett01/rsync-deployments@v8
+        with:
+          switches: -avz --delete
+          path: ./dist/
+          remote_path: ${{ secrets.SERVER_TARGET }}
+          remote_host: ${{ secrets.SERVER_HOST }}
+          remote_port: ${{ secrets.SERVER_PORT }}
+          remote_user: ${{ secrets.SERVER_USER }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
