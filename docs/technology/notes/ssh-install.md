@@ -2,7 +2,6 @@
 title: SSH 安装与基础使用指南
 description: 本文介绍如何在 Windows、Linux、macOS 三个平台上安装 SSH 客户端与服务端，并演示基础连接操作，帮助你快速上手远程管理。
 tags: [ SSH, Windows, Linux, macOS, 远程连接 ]
-date: 2026-03-27
 ---
 
 # SSH 安装与基础使用指南
