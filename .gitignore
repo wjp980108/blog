@@ -4,4 +4,3 @@ dist
 cache
 .temp
 .DS_Store
-pnpm-lock.yaml
