@@ -189,7 +189,7 @@ btn.addEventListener('click', (e) => {
 ```
 来看我们最终实现的效果：
 
-![图片](http://img.wjp.plus/dcdb1482c90e4a019cedcf7ca94ccbb8~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75 (1).awebp)
+![图片](http://img.wjp.plus/dcdb1482c90e4a019cedcf7ca94ccbb8~tplv-k3u1fbpfcp-jj-mark_3024_0_0_0_q75.awebp)
 
 到此我们就实现了主题切换的过渡动画
 
