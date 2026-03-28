@@ -117,9 +117,9 @@ export default defineConfig({
     search: {
       provider: 'algolia',
       options: {
-        appId: 'LR7EAOYN94',
-        apiKey: 'b70086449401ef009432a524557fc061',
-        indexName: 'wjp',
+        appId: 'C4XNUKV0RH',
+        apiKey: 'eb6ad6f3733bf6ad133ce80176039007',
+        indexName: 'Algplia blog',
         placeholder: '搜索文档',
         translations: {
           button: {
