@@ -123,7 +123,7 @@ chmod 600 ~/.ssh/authorized_keys
 上传完成后，退出服务器重新连接，验证密钥登录是否生效：
 
 ```bash
-ssh 用户名@服务器IP
+ssh 用户名@服务器IP -p 端口
 ```
 
 如果设置了 passphrase，此时会提示输入。成功登录则说明配置正确。
